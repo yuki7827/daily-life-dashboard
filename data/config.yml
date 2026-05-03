@@ -1,0 +1,17 @@
+# 居住地切替設定
+# CLAUDE.md側で実行日（JST）と location_switch_date を比較して current location を決定する
+location_switch_date: "2026-05-22"
+
+locations:
+  hachimanyama:
+    label: "東京都世田谷区八幡山"
+    nearest_station: "京王線 八幡山駅"
+    weather_area_code: "130010"   # 東京地方（気象庁）
+    pollen_area: "tokyo"
+    garbage_district: "setagaya_hachimanyama"  # 世田谷区八幡山1〜3丁目想定。実際の収集曜日はsources側で確認
+  fujimino:
+    label: "埼玉県ふじみ野市"
+    nearest_station: "東武東上線 ふじみ野駅"
+    weather_area_code: "110020"   # 埼玉県南部（気象庁）
+    pollen_area: "saitama"
+    garbage_district: "fujimino_city"

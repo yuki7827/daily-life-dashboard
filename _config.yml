@@ -1,0 +1,20 @@
+title: 朝のダッシュボード
+description: 毎朝6:30 JSTに自動更新される生活情報まとめ
+timezone: Asia/Tokyo
+permalink: /:year/:month/:day/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - CLAUDE.md
+  - data/

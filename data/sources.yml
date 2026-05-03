@@ -1,0 +1,62 @@
+# 各セクションの参照URL。Routineはここに列挙されたURLのみアクセスする。
+# 取得失敗時は該当セクションを「（情報取得できず）」と記載してスキップする。
+
+weather:
+  jma_forecast_tokyo: "https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json"
+  jma_forecast_saitama: "https://www.jma.go.jp/bosai/forecast/data/forecast/110000.json"
+  tenki_tokyo: "https://tenki.jp/forecast/3/16/4410/13000/"
+  tenki_saitama_south: "https://tenki.jp/forecast/3/14/4310/11220/"
+
+pollen:
+  tenki_pollen_tokyo: "https://tenki.jp/pollen/3/16/"
+  tenki_pollen_saitama: "https://tenki.jp/pollen/3/14/"
+
+# スーパー特売（トクバイ・Shufoo!の店舗別ページ）
+supermarkets:
+  hachimanyama:
+    - name: "オオゼキ 八幡山店"
+      url: "https://tokubai.co.jp/オオゼキ/八幡山店"
+    - name: "サミット 八幡山店"
+      url: "https://tokubai.co.jp/サミット/八幡山店"
+    - name: "ライフ 八幡山店"
+      url: "https://tokubai.co.jp/ライフ"
+  fujimino:
+    - name: "ヤオコー ふじみ野店"
+      url: "https://tokubai.co.jp/ヤオコー"
+    - name: "マルエツ ふじみ野店"
+      url: "https://tokubai.co.jp/マルエツ"
+    - name: "ベルク ふじみ野店"
+      url: "https://tokubai.co.jp/ベルク"
+
+# ファミレス・外食キャンペーン（公式キャンペーン/お知らせページ）
+restaurants:
+  - name: "サイゼリヤ"
+    url: "https://www.saizeriya.co.jp/whatsnew/"
+  - name: "ガスト"
+    url: "https://www.skylark.co.jp/gusto/menu/grand_menu.html"
+  - name: "ジョナサン"
+    url: "https://www.skylark.co.jp/jonathan/menu/menu.html"
+  - name: "デニーズ"
+    url: "https://www.dennys.jp/news/"
+  - name: "ロイヤルホスト"
+    url: "https://www.royalhost.jp/news/"
+  - name: "マクドナルド"
+    url: "https://www.mcdonalds.co.jp/campaign/"
+  - name: "スターバックス"
+    url: "https://www.starbucks.co.jp/whatsnew/"
+
+# ゴミ収集
+garbage:
+  hachimanyama:
+    info_url: "https://www.city.setagaya.lg.jp/mokuji/kurashi/002/004/d00005671.html"
+    note: "世田谷区。八幡山1〜3丁目の収集曜日に合わせて判定する。"
+  fujimino:
+    info_url: "https://www.city.fujimino.saitama.jp/soshiki/kankyo/4/2/index.html"
+    note: "ふじみ野市。地区別収集カレンダーから判定する。"
+
+# 地域イベント
+events:
+  hachimanyama:
+    - "https://www.city.setagaya.lg.jp/mokuji/event/index.html"
+  fujimino:
+    - "https://www.city.fujimino.saitama.jp/event/"

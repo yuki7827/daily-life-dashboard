@@ -8,7 +8,7 @@ locations:
     nearest_station: "京王線 八幡山駅"
     weather_area_code: "130010"   # 東京地方（気象庁）
     pollen_area: "tokyo"
-    garbage_district: "setagaya_hachimanyama"  # 世田谷区八幡山1〜3丁目想定。実際の収集曜日はsources側で確認
+    garbage_district: "setagaya_kamikitazawa_5chome"  # 世田谷区上北沢5丁目（ゴミ収集対象地区）
   fujimino:
     label: "埼玉県ふじみ野市"
     nearest_station: "東武東上線 ふじみ野駅"

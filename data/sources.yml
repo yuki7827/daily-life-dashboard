@@ -1,101 +1,82 @@
-# 各セクションの参照URL。Routineはここに列挙されたURLを参照する。
-# 取得方針: まず WebSearch (search_query) を試み、本文詳細が必要な場合のみ url へ WebFetch。
-# WebFetch は Custom/Full 環境でのみ成功する。Default 環境では WebSearch のみで対応。
+# 各セクションの参照URL。ローカル実行のためWebFetchを優先し、失敗時にWebSearchへフォールバック。
+# 居住地: 埼玉県富士見市（最寄り ふじみ野駅）
 
 weather:
-  # WebFetch用（Custom/Full環境）
-  jma_forecast_tokyo: "https://www.jma.go.jp/bosai/forecast/data/forecast/130000.json"
   jma_forecast_saitama: "https://www.jma.go.jp/bosai/forecast/data/forecast/110000.json"
-  tenki_tokyo: "https://tenki.jp/forecast/3/16/4410/13000/"
   tenki_saitama_south: "https://tenki.jp/forecast/3/14/4310/11220/"
-  # WebSearch用クエリ（Default環境フォールバック）
-  search_query_tokyo: "東京 世田谷区 天気予報 今日 最高気温 降水確率"
-  search_query_saitama: "埼玉県南部 ふじみ野市 天気予報 今日 最高気温 降水確率"
+  search_query: "埼玉県南部 富士見市 天気予報 今日 最高気温 降水確率"
 
 pollen:
-  # WebFetch用（Custom/Full環境）
-  tenki_pollen_tokyo: "https://tenki.jp/pollen/3/16/"
   tenki_pollen_saitama: "https://tenki.jp/pollen/3/14/"
-  # WebSearch用クエリ
-  search_query_tokyo: "東京 花粉 飛散 今日 ヒノキ スギ レベル"
-  search_query_saitama: "埼玉 花粉 飛散 今日 レベル"
+  search_query: "埼玉 花粉 飛散 今日 レベル"
 
-# スーパー特売
-# url: tokubai店舗別ページ（Custom/Full環境でWebFetch）
-# search_query: WebSearchフォールバック（Default環境）
+# スーパー特売（ふじみ野駅周辺）
 supermarkets:
-  hachimanyama:
-    - name: "オオゼキ 八幡山店"
-      url: "https://tokubai.co.jp/%E3%82%AA%E3%82%AA%E3%82%BC%E3%82%AD/8408"
-      url_shufoo: "https://www.shufoo.net/pntweb/shopDetail/317230/"
-      url_kurashiru: "https://chirashi.kurashiru.com/stores/109d6813-c895-4b6a-a56d-f7ca8b9e50dc"
-      search_query: "オオゼキ 八幡山 特売 今日 円"
-    - name: "サミット 上北沢店"
-      url: "https://tokubai.co.jp/%E3%82%B5%E3%83%9F%E3%83%83%E3%83%88/7267"
-      url_shufoo: "https://www.shufoo.net/pntweb/shopDetail/264221/"
-      url_kurashiru: "https://chirashi.kurashiru.com/stores/4b53bceb-6ca3-4df4-839c-019f07289570"
-      search_query: "サミット 上北沢 特売 今日 円"
-    - name: "ライフ 千歳烏山店"
-      url: "https://tokubai.co.jp/%E3%83%A9%E3%82%A4%E3%83%95/2522"
-      url_shufoo: "https://www.shufoo.net/pntweb/shopDetail/18645/"
-      url_kurashiru: "https://chirashi.kurashiru.com/stores/9b32af60-68cb-46fb-abaa-59d16b00bdf6"
-      search_query: "ライフ 千歳烏山 特売 今日 円"
-    - name: "京王ストア 八幡山店"
-      url: "https://tokubai.co.jp/%E4%BA%AC%E7%8E%8B%E3%82%B9%E3%83%88%E3%82%A2/7866"
-      url_kurashiru: "https://chirashi.kurashiru.com/stores/75e24461-77ce-4bf3-8e61-bf8c6818e901"
-      search_query: "京王ストア 八幡山 特売 今日 円"
-  fujimino:
-    - name: "ヤオコー ふじみ野店"
-      url: "https://tokubai.co.jp/%E3%83%A4%E3%82%AA%E3%82%B3%E3%83%BC"
-      search_query: "ヤオコー ふじみ野 特売 今日 円"
-    - name: "マルエツ ふじみ野店"
-      url: "https://tokubai.co.jp/%E3%83%9E%E3%83%AB%E3%82%A8%E3%83%84"
-      search_query: "マルエツ ふじみ野 特売 今日 円"
-    - name: "ベルク ふじみ野店"
-      url: "https://tokubai.co.jp/%E3%83%99%E3%83%AB%E3%82%AF"
-      search_query: "ベルク ふじみ野 特売 今日 円"
+  - name: "ヤオコー"
+    url: "https://tokubai.co.jp/%E3%83%A4%E3%82%AA%E3%82%B3%E3%83%BC"
+    search_query: "ヤオコー ふじみ野 特売 今日 円"
+  - name: "マルエツ"
+    url: "https://tokubai.co.jp/%E3%83%9E%E3%83%AB%E3%82%A8%E3%83%84"
+    search_query: "マルエツ ふじみ野 特売 今日 円"
+  - name: "ベルク"
+    url: "https://tokubai.co.jp/%E3%83%99%E3%83%AB%E3%82%AF"
+    search_query: "ベルク ふじみ野 特売 今日 円"
+  - name: "サミット"
+    url: "https://tokubai.co.jp/%E3%82%B5%E3%83%9F%E3%83%83%E3%83%88"
+    search_query: "サミット ふじみ野 特売 今日 円"
 
-# ファミレス・外食キャンペーン
-# WebFetch用URL + WebSearch用クエリ
+# ファミレス・外食キャンペーン（割引・クーポン優先）
 restaurants:
   - name: "サイゼリヤ"
     url: "https://www.saizeriya.co.jp/whatsnew/"
-    search_query: "サイゼリヤ 新メニュー キャンペーン 2026年"
+    search_query: "サイゼリヤ クーポン キャンペーン 2026年"
   - name: "ガスト"
     url: "https://www.skylark.co.jp/gusto/menu/grand_menu.html"
-    search_query: "ガスト 期間限定 新メニュー 2026年"
+    search_query: "ガスト クーポン 割引 すかいらーくアプリ 2026年"
   - name: "ジョナサン"
     url: "https://www.skylark.co.jp/jonathan/menu/menu.html"
-    search_query: "ジョナサン 期間限定 新メニュー 2026年"
+    search_query: "ジョナサン クーポン 割引 2026年"
   - name: "デニーズ"
     url: "https://www.dennys.jp/news/"
-    search_query: "デニーズ 新メニュー キャンペーン 2026年"
-  - name: "ロイヤルホスト"
-    url: "https://www.royalhost.jp/news/"
-    search_query: "ロイヤルホスト 新メニュー キャンペーン 2026年"
+    search_query: "デニーズ クーポン キャンペーン 2026年"
   - name: "マクドナルド"
     url: "https://www.mcdonalds.co.jp/campaign/"
-    search_query: "マクドナルド 期間限定 キャンペーン 2026年5月"
+    search_query: "マクドナルド クーポン お得 キャンペーン 2026年"
   - name: "スターバックス"
     url: "https://www.starbucks.co.jp/whatsnew/"
-    search_query: "スターバックス 新商品 フラペチーノ 2026年5月"
+    search_query: "スターバックス キャンペーン お得 2026年"
+  - name: "丸亀製麺"
+    url: "https://www.marugame-seimen.com/news/"
+    search_query: "丸亀製麺 クーポン キャンペーン 2026年"
 
-# ゴミ収集
-garbage:
-  hachimanyama:
-    info_url: "https://www.city.setagaya.lg.jp/mokuji/kurashi/002/004/d00005671.html"
-    search_query: "世田谷区 ゴミ収集 八幡山 烏山地域 曜日 可燃 不燃 資源"
-    note: "世田谷区。八幡山1〜3丁目の収集曜日に合わせて判定する。"
-  fujimino:
-    info_url: "https://www.city.fujimino.saitama.jp/soshiki/kankyo/4/2/index.html"
-    search_query: "ふじみ野市 ゴミ収集 曜日 可燃 不燃 資源 地区別"
-    note: "ふじみ野市。地区別収集カレンダーから判定する。"
+# オンラインショップお得情報（Yahoo!ショッピング・楽天市場など）
+online_shopping:
+  - name: "楽天市場"
+    search_query: "楽天市場 セール お買い物マラソン スーパーセール 開催 今日 2026年"
+    note: "0と5のつく日・お買い物マラソン・スーパーSALE・勝ったら倍などの開催状況"
+  - name: "Yahoo!ショッピング"
+    search_query: "Yahoo!ショッピング 5のつく日 PayPay 還元 キャンペーン 今日 2026年"
+    note: "5のつく日・ゾロ目の日・PayPayポイント還元キャンペーン"
+  - name: "Amazon"
+    search_query: "Amazon セール タイムセール プライム 開催 今日 2026年"
+    note: "タイムセール祭り・プライムデー等の大型セール開催時のみ掲載"
+
+# キャッシュレス・公式アプリお得情報
+cashless_apps:
+  - name: "PayPay"
+    search_query: "PayPay キャンペーン 還元 自治体 埼玉 富士見市 今日 2026年"
+    note: "全国・埼玉県・富士見市の自治体還元キャンペーン、PayPayジャンボ等"
+  - name: "d払い・楽天ペイ・au PAY"
+    search_query: "d払い 楽天ペイ au PAY キャンペーン 還元 2026年"
+    note: "主要バーコード決済の還元キャンペーン"
+  - name: "スーパー公式アプリ"
+    search_query: "ヤオコー マルエツ ベルク アプリ クーポン ポイント 2026年"
+    note: "近隣スーパーのアプリ限定クーポン・ポイントデー"
+
+# ゴミ収集は data/config.yml の garbage_schedule（静的）を使用。Web取得不要。
 
 # 地域イベント
 events:
-  hachimanyama:
-    - url: "https://www.city.setagaya.lg.jp/mokuji/event/index.html"
-      search_query: "世田谷区 イベント 今月 今週"
-  fujimino:
-    - url: "https://www.city.fujimino.saitama.jp/event/"
-      search_query: "ふじみ野市 イベント 今月 今週"
+  - url: "https://www.city.fujimi.saitama.jp/event/"
+    search_query: "富士見市 イベント 今月 今週"
+  - search_query: "ふじみ野駅 ららぽーと 富士見 イベント 今週末"

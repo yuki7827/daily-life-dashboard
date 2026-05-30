@@ -1,17 +1,20 @@
-# 居住地切替設定
-# CLAUDE.md側で実行日（JST）と location_switch_date を比較して current location を決定する
-location_switch_date: "2026-05-22"
+# 居住地・固定情報
+# 2026-05下旬に世田谷区八幡山 → 埼玉県富士見市へ転居済み。居住地切替ロジックは廃止。
 
-locations:
-  hachimanyama:
-    label: "東京都世田谷区八幡山"
-    nearest_station: "京王線 八幡山駅"
-    weather_area_code: "130010"   # 東京地方（気象庁）
-    pollen_area: "tokyo"
-    garbage_district: "setagaya_kamikitazawa_5chome"  # 世田谷区上北沢5丁目（ゴミ収集対象地区）
-  fujimino:
-    label: "埼玉県ふじみ野市"
-    nearest_station: "東武東上線 ふじみ野駅"
-    weather_area_code: "110020"   # 埼玉県南部（気象庁）
-    pollen_area: "saitama"
-    garbage_district: "fujimino_city"
+location:
+  label: "埼玉県富士見市"
+  nearest_station: "東武東上線 ふじみ野駅"   # ※ふじみ野駅は富士見市側。隣接の「ふじみ野市」とは別市
+  weather_area: "埼玉県南部"
+  weather_area_code: "110020"               # 埼玉県南部（気象庁）
+  pollen_area: "saitama"
+
+# ゴミ収集（富士見市・自宅地区）— 静的。毎回の取得は不要。
+garbage_schedule:
+  月: "不燃・有害ごみ / ペットボトル / 紙・布類 / ビン / カン"
+  火: "収集なし"
+  水: "可燃ごみ / 資源プラスチック"
+  木: "収集なし"
+  金: "収集なし"
+  土: "可燃ごみ"
+  日: "収集なし"
+  detail_pdf: "https://www.city.fujimi.saitama.jp/kurashi_tetsuzuki/gomi_recycle/gomi/dashikata/gominobunbtunituite.files/R7_pamphlet.pdf"

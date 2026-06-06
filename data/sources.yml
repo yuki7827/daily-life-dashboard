@@ -1,55 +1,53 @@
 # 各セクションの参照URL。ローカル実行のためWebFetchを優先し、失敗時にWebSearchへフォールバック。
+# このリストは「検索の起点」。記載外のチェーン・サイト・施設も幅広く検索してよい（CLAUDE.md 品質方針参照）。
 # 居住地: 埼玉県富士見市（最寄り ふじみ野駅）
 
 weather:
   jma_forecast_saitama: "https://www.jma.go.jp/bosai/forecast/data/forecast/110000.json"
+  jma_warning_saitama: "https://www.jma.go.jp/bosai/warning/data/warning/110000.json"  # 警報・注意報（防災チェック用）
+  yahoo_fujimi: "https://weather.yahoo.co.jp/weather/jp/11/4310/11235.html"
   tenki_saitama_south: "https://tenki.jp/forecast/3/14/4310/11220/"
   search_query: "埼玉県南部 富士見市 天気予報 今日 最高気温 降水確率"
+  disaster_search_query: "埼玉県 台風 大雨 警報 注意報 熱中症警戒アラート 今日"
 
 pollen:
   tenki_pollen_saitama: "https://tenki.jp/pollen/3/14/"
   search_query: "埼玉 花粉 飛散 今日 レベル"
 
-# スーパー特売（ふじみ野駅周辺）
-supermarkets:
-  - name: "ヤオコー"
-    url: "https://tokubai.co.jp/%E3%83%A4%E3%82%AA%E3%82%B3%E3%83%BC"
-    search_query: "ヤオコー ふじみ野 特売 今日 円"
-  - name: "マルエツ"
-    url: "https://tokubai.co.jp/%E3%83%9E%E3%83%AB%E3%82%A8%E3%83%84"
-    search_query: "マルエツ ふじみ野 特売 今日 円"
-  - name: "ベルク"
-    url: "https://tokubai.co.jp/%E3%83%99%E3%83%AB%E3%82%AF"
-    search_query: "ベルク ふじみ野 特売 今日 円"
-  - name: "サミット"
-    url: "https://tokubai.co.jp/%E3%82%B5%E3%83%9F%E3%83%83%E3%83%88"
-    search_query: "サミット ふじみ野 特売 今日 円"
-
-# ファミレス・外食キャンペーン（割引・クーポン優先）
+# 外食キャンペーン（割引・クーポン優先）。下記は起点。牛丼・回転寿司・カフェ・ピザ等も幅広く検索する。
 restaurants:
-  - name: "サイゼリヤ"
-    url: "https://www.saizeriya.co.jp/whatsnew/"
-    search_query: "サイゼリヤ クーポン キャンペーン 2026年"
-  - name: "ガスト"
+  - name: "ガスト・すかいらーくグループ（バーミヤン/ジョナサン/夢庵/しゃぶ葉等）"
     url: "https://www.skylark.co.jp/gusto/menu/grand_menu.html"
-    search_query: "ガスト クーポン 割引 すかいらーくアプリ 2026年"
-  - name: "ジョナサン"
-    url: "https://www.skylark.co.jp/jonathan/menu/menu.html"
-    search_query: "ジョナサン クーポン 割引 2026年"
-  - name: "デニーズ"
-    url: "https://www.dennys.jp/news/"
-    search_query: "デニーズ クーポン キャンペーン 2026年"
+    search_query: "ガスト すかいらーく クーポン 割引 アプリ dポイント 2026年"
   - name: "マクドナルド"
     url: "https://www.mcdonalds.co.jp/campaign/"
     search_query: "マクドナルド クーポン お得 キャンペーン 2026年"
+  - name: "サイゼリヤ"
+    url: "https://www.saizeriya.co.jp/whatsnew/"
+    search_query: "サイゼリヤ クーポン キャンペーン 2026年"
+  - name: "デニーズ"
+    url: "https://www.dennys.jp/news/"
+    search_query: "デニーズ クーポン キャンペーン 2026年"
+  - name: "丸亀製麺"
+    url: "https://www.marugame-seimen.com/news/"
+    search_query: "丸亀製麺 クーポン キャンペーン 半額 2026年"
   - name: "スターバックス"
     url: "https://www.starbucks.co.jp/whatsnew/"
     search_query: "スターバックス キャンペーン お得 2026年"
-  - name: "丸亀製麺"
-    url: "https://www.marugame-seimen.com/news/"
-    search_query: "丸亀製麺 クーポン キャンペーン 2026年"
+  - name: "牛丼チェーン（すき家/吉野家/松屋）"
+    search_query: "すき家 吉野家 松屋 クーポン 割引 キャンペーン 2026年"
+  - name: "ファストフード（KFC/モスバーガー/ロッテリア）"
+    search_query: "ケンタッキー モスバーガー クーポン パック お得 2026年"
+  - name: "回転寿司（スシロー/はま寿司/くら寿司/かっぱ寿司）"
+    search_query: "スシロー はま寿司 くら寿司 クーポン キャンペーン 2026年"
+  - name: "ピザ（ドミノ/ピザハット/ピザーラ）"
+    search_query: "ドミノピザ ピザハット 半額 クーポン 2026年"
+  - name: "カフェ（ドトール/タリーズ/コメダ/ミスド）"
+    search_query: "ドトール タリーズ コメダ ミスタードーナツ クーポン キャンペーン 2026年"
+  - name: "外食キャンペーン横断まとめ"
+    search_query: "飲食チェーン クーポン キャンペーン まとめ 2026年6月"
 
-# オンラインショップお得情報（Yahoo!ショッピング・楽天市場など）
+# オンラインショップお得情報（楽天市場・Yahoo!ショッピング・Amazon など）
 online_shopping:
   - name: "楽天市場"
     search_query: "楽天市場 セール お買い物マラソン スーパーセール 開催 今日 2026年"
@@ -60,23 +58,38 @@ online_shopping:
   - name: "Amazon"
     search_query: "Amazon セール タイムセール プライム 開催 今日 2026年"
     note: "タイムセール祭り・プライムデー等の大型セール開催時のみ掲載"
+  - name: "その他EC（au PAYマーケット/Qoo10/ZOZOTOWN等）"
+    search_query: "au PAYマーケット Qoo10 ZOZOTOWN セール ポイント 今日 2026年"
+    note: "大きな還元・セールがある場合のみ掲載"
 
 # キャッシュレス・公式アプリお得情報
 cashless_apps:
-  - name: "PayPay"
+  - name: "PayPay（自治体還元を最優先で確認）"
     search_query: "PayPay キャンペーン 還元 自治体 埼玉 富士見市 今日 2026年"
-    note: "全国・埼玉県・富士見市の自治体還元キャンペーン、PayPayジャンボ等"
-  - name: "d払い・楽天ペイ・au PAY"
-    search_query: "d払い 楽天ペイ au PAY キャンペーン 還元 2026年"
-    note: "主要バーコード決済の還元キャンペーン"
-  - name: "スーパー公式アプリ"
+    url: "https://paypay.ne.jp/event/"
+    note: "全国・埼玉県・富士見市の自治体還元、PayPayジャンボ・超PayPay祭等。規約変更の注意喚起も拾う"
+  - name: "d払い・楽天ペイ・au PAY・メルペイ"
+    search_query: "d払い 楽天ペイ au PAY メルペイ キャンペーン 還元 2026年"
+    note: "主要バーコード決済の還元キャンペーン。埼玉県・近隣自治体の地域還元も確認"
+  - name: "スーパー公式アプリ（ヤオコー/マルエツ/ベルク/サミット）"
     search_query: "ヤオコー マルエツ ベルク アプリ クーポン ポイント 2026年"
     note: "近隣スーパーのアプリ限定クーポン・ポイントデー"
 
 # ゴミ収集は data/config.yml の garbage_schedule（静的）を使用。Web取得不要。
 
-# 地域イベント
+# 地域イベント（ららぽーとに偏らず幅広く）
 events:
-  - url: "https://www.city.fujimi.saitama.jp/event/"
-    search_query: "富士見市 イベント 今月 今週"
-  - search_query: "ふじみ野駅 ららぽーと 富士見 イベント 今週末"
+  - name: "ららぽーと富士見"
+    url: "https://mitsui-shopping-park.com/lalaport/fujimi/event/"
+    search_query: "ららぽーと富士見 イベント 今週末"
+  - name: "ソヨカふじみ野"
+    search_query: "ソヨカふじみ野 イベント 今週末 2026年"
+  - name: "富士見市 公式イベント"
+    url: "https://www.city.fujimi.saitama.jp/event/"
+    search_query: "富士見市 イベント 今週末 まつり マルシェ"
+  - name: "ふじみ野市・三芳町"
+    search_query: "ふじみ野市 三芳町 イベント 今週末 2026年"
+  - name: "キラリ☆ふじみ（市民文化会館）"
+    search_query: "キラリふじみ 富士見市民文化会館 公演 イベント 今月"
+  - name: "駅周辺横断"
+    search_query: "ふじみ野駅 鶴瀬駅 みずほ台駅 イベント 今週末"

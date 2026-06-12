@@ -46,6 +46,19 @@ restaurants:
     search_query: "ドトール タリーズ コメダ ミスタードーナツ クーポン キャンペーン 2026年"
   - name: "外食キャンペーン横断まとめ"
     search_query: "飲食チェーン クーポン キャンペーン まとめ 2026年6月"
+  # --- まとめ系サイト（WebFetchで直接取得。2026-06-12 取得可否検証済み） ---
+  - name: "グルメWatch（Impress）"
+    url: "https://gourmet.watch.impress.co.jp/"
+    note: "外食チェーンのキャンペーン・クーポンニュースが当日更新。期間限定割引の発見に最適"
+  - name: "クーポン倶楽部"
+    url: "https://tasdesign.co.jp/media/"
+    note: "チェーン別の最新クーポンを割引額つきで随時更新"
+  - name: "ゆるなご お得情報まとめ"
+    url: "https://yurunago.or.jp/gourmet-hub/otoku-campaign/"
+    note: "飲食・コンビニ横断の随時更新まとめ。複数月の情報が混在するため日付の確認必須"
+  - name: "得北 毎月のお得デー一覧（静的）"
+    url: "https://tokukita.jp/service/otokunahi.html"
+    note: "毎月1日=丸亀製麺釜揚げ半額、28日=KFCとりの日、29日=焼肉ライク半額 等。実行日の日付と突合して該当日のみ掲載"
 
 # オンラインショップお得情報（楽天市場・Yahoo!ショッピング・Amazon など）
 online_shopping:
@@ -61,6 +74,13 @@ online_shopping:
   - name: "その他EC（au PAYマーケット/Qoo10/ZOZOTOWN等）"
     search_query: "au PAYマーケット Qoo10 ZOZOTOWN セール ポイント 今日 2026年"
     note: "大きな還元・セールがある場合のみ掲載"
+  # --- まとめ系サイト（2026-06-12 検証済み） ---
+  - name: "カイドキ Amazonセール年間スケジュール"
+    url: "https://mag.app-liv.jp/archive/132115/"
+    note: "Amazonの直近・次回セールの開催日が具体的。「次の買い時」の日付取得用"
+  - name: "アプリオ 楽天市場お得な日まとめ"
+    url: "https://appllio.com/rakuten-ichiba-deals-day"
+    note: "当月の楽天ポイントアップ日・セール日程の一覧"
 
 # キャッシュレス・公式アプリお得情報
 cashless_apps:
@@ -74,6 +94,14 @@ cashless_apps:
   - name: "スーパー公式アプリ（ヤオコー/マルエツ/ベルク/サミット）"
     search_query: "ヤオコー マルエツ ベルク アプリ クーポン ポイント 2026年"
     note: "近隣スーパーのアプリ限定クーポン・ポイントデー"
+  # --- まとめ系サイト（2026-06-12 検証済み） ---
+  - name: "こじナビ 自治体キャッシュレス還元まとめ"
+    url: "https://kojinabi.com/"
+    search_query: "kojinabi 自治体 キャッシュレス 還元 まとめ 当月"
+    note: "月替わりの個別記事に埼玉県内の還元率・期間・上限が具体的に載る。トップから当月記事を探すか検索で個別記事URLを特定"
+  - name: "ITmedia Mobile 月例スマホ決済キャンペーンまとめ"
+    search_query: "ITmedia あなたの街のスマホ決済キャンペーンまとめ 当月"
+    note: "PayPay/d払い/au PAY/楽天ペイの地域還元を月次で網羅。月初に更新"
 
 # ゴミ収集は data/config.yml の garbage_schedule（静的）を使用。Web取得不要。
 

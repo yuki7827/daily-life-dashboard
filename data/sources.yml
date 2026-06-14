@@ -59,6 +59,12 @@ restaurants:
   - name: "得北 毎月のお得デー一覧（静的）"
     url: "https://tokukita.jp/service/otokunahi.html"
     note: "毎月1日=丸亀製麺釜揚げ半額、28日=KFCとりの日、29日=焼肉ライク半額 等。実行日の日付と突合して該当日のみ掲載"
+  - name: "ぴよのよいち 今月のチェーン店グルメお得情報総まとめ"
+    url: "https://piyoch.com/otokugourmet/"
+    note: "チェーン店ごとに割引額・期間が具体的にまとまっている。2026-06-14 検証済み（スシロー/かっぱ寿司/バーミヤン等の有効な情報を取得できた）"
+  - name: "ココトク グルメカテゴリ"
+    url: "https://kojinabi.com/blog-category-21.html"
+    note: "個別キャンペーン記事へのリンク一覧。記事ごとに期間・割引額が明記。2026-06-14 検証済み"
 
 # オンラインショップお得情報（楽天市場・Yahoo!ショッピング・Amazon など）
 online_shopping:
@@ -91,6 +97,9 @@ cashless_apps:
   - name: "d払い・楽天ペイ・au PAY・メルペイ"
     search_query: "d払い 楽天ペイ au PAY メルペイ キャンペーン 還元 2026年"
     note: "主要バーコード決済の還元キャンペーン。埼玉県・近隣自治体の地域還元も確認"
+  - name: "ダイヤモンドZAi クレジットカードおすすめ"
+    url: "https://diamond.jp/zai/category/creditcard-osusume"
+    note: "クレジットカード中心の比較・キャンペーン記事。外食チェーン×カード還元など店舗とカードを組み合わせたお得情報があれば外食欄と相互参照。2026-06-14 ユーザー提案"
   - name: "スーパー公式アプリ（ヤオコー/マルエツ/ベルク/サミット）"
     search_query: "ヤオコー マルエツ ベルク アプリ クーポン ポイント 2026年"
     note: "近隣スーパーのアプリ限定クーポン・ポイントデー"

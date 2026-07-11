@@ -1,16 +1,8 @@
-<!--
-  アーティファクト版ダッシュボードのテンプレート。
-  ルール:
-  - <style> 内の CSS・デザイントークンは一切変更しない
-  - <title> は「朝のダッシュボード」固定
-  - コンテンツ（日付・天気・各セクションの中身）だけを当日の情報に差し替える
-  - 下のマークアップはコンテンツ例。行の増減は自由だが、クラス構造は例に合わせる
-  - セクションの順序: 天気 → ⏳今日まで → ゴミ → 外食 → キャッシュレス → EC → イベント
-  - 「⏳今日まで」には当日が期限・当日開催のものだけを集める（なければセクションごと省略）
-  - 熱中症・警報などの防災バナー(.banner)は該当日のみ。無い日は要素ごと省略
-  - 期限が7日以内の .until には class="until hot" を付ける
-  - CLAUDE.md の品質方針（抽選系❌・重複❌・定常圧縮・曜日検算）を適用する
--->
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>朝のダッシュボード</title>
 <style>
   :root {
@@ -159,47 +151,51 @@
 
   footer { font-size: 11.5px; color: var(--ink-soft); text-align: center; margin-top: 6px; }
 </style>
+</head>
+<body>
 
 <div class="wrap">
   <header>
     <div class="eyebrow">朝のダッシュボード</div>
-    <h1>M月D日（曜）</h1>
-    <div class="sub">埼玉県富士見市 ・ H:MM 更新</div>
+    <h1>7月12日（日）</h1>
+    <div class="sub">埼玉県富士見市 ・ 8:55 更新</div>
   </header>
 
-  <!-- 防災・熱中症など該当日のみ。無ければこの要素を出さない -->
-  <div class="banner">🥵 <strong>熱中症 厳重警戒</strong> — 説明文。</div>
+  <div class="banner">🥵 <strong>熱中症 厳重警戒</strong> — 今日は最高32℃。炎天下を避け、水分・塩分補給を。</div>
 
   <section class="card">
     <h2>🌤 天気・洗濯</h2>
     <div class="wx-grid">
       <div class="wx">
-        <span class="day">今日（曜）天気概況</span>
-        <span class="temps">31° <span class="lo">/ 25°</span></span>
-        <span class="desc">降水 ○%</span>
-        <span class="pill tri">洗濯 △ ひとこと</span><!-- ◎=ok / △=tri / ×=ng -->
+        <span class="day">今日（日）曇り、昼過ぎから雨</span>
+        <span class="temps">32° <span class="lo">/ 25°</span></span>
+        <span class="desc">降水 昼20% → 夜40%</span>
+        <span class="pill tri">洗濯 △ 干すなら午前中だけ</span>
       </div>
       <div class="wx">
-        <span class="day">明日（曜）天気概況</span>
+        <span class="day">明日（月）曇り、夜まで所により雨</span>
         <span class="temps">31° <span class="lo">/ 24°</span></span>
-        <span class="desc">降水 ○%</span>
-        <span class="pill ok">洗濯 ◎ ひとこと</span>
+        <span class="desc">降水 午前30% → 夜20%</span>
+        <span class="pill tri">洗濯 △ 室内干し推奨</span>
       </div>
     </div>
-    <div class="wx-note">🌸 花粉: 一言（オフシーズンなら1行）</div>
+    <div class="wx-note">🌸 花粉: スギ・ヒノキはオフシーズン（秋花粉は9月〜）</div>
   </section>
 
-  <!-- 当日期限・当日開催のものだけ。無い日はセクションごと省略 -->
   <section class="card">
     <h2>⏳ 今日まで！</h2>
     <div class="rail">
       <div class="item">
-        <span class="what">🛒 サービス名 <b>お得内容と還元率</b><br>
-          <small>条件・エントリー要否など補足</small></span>
+        <span class="what">🛒 Yahoo!ショッピング <b>超PayPay祭 最大22%還元</b><br>
+          <small>5,000円以上+4% / 2万円以上+7%（要事前エントリー）</small></span>
         <span class="badge">本日最終日</span>
       </div>
       <div class="item">
-        <span class="what">🎤 イベント名（場所）</span>
+        <span class="what">🎯 ららぽーと富士見 <b>三井SPポイントアップデー</b></span>
+        <span class="badge">本日最終日</span>
+      </div>
+      <div class="item">
+        <span class="what">🎤 ららぽーと富士見 <b>アイドルフリーライブ</b>（入場無料）</span>
         <span class="badge">今日開催</span>
       </div>
     </div>
@@ -209,13 +205,13 @@
     <h2>♻ ゴミ収集</h2>
     <div class="gomi-row">
       <div class="gomi">
-        <div class="when">今日（曜）</div>
-        <div class="items">品目 or 収集なし</div>
+        <div class="when">今日（日）</div>
+        <div class="items">収集なし</div>
       </div>
-      <div class="gomi tomorrow"><!-- 明日が多品目のときは .tomorrow で強調。収集なしなら外す -->
-        <div class="when">明日（曜）— 今夜準備を！</div>
-        <div class="items">品目リスト</div>
-        <div class="hint">次の可燃ごみは 曜 M/D</div>
+      <div class="gomi tomorrow">
+        <div class="when">明日（月）— 今夜準備を！</div>
+        <div class="items">不燃・有害 / ペットボトル / 紙・布 / ビン / カン</div>
+        <div class="hint">次の可燃ごみは 水 7/15</div>
       </div>
     </div>
   </section>
@@ -223,35 +219,40 @@
   <section class="card">
     <h2>🍴 外食キャンペーン</h2>
     <ul class="deals">
-      <li><span class="deal">🥩 店名 — 内容 <b>金額・%OFF</b></span><span class="until">〜M/D</span></li>
-      <li><span class="deal">🍜 店名 — 内容 <b>金額</b></span><span class="until hot">〜M/D</span></li>
+      <li><span class="deal">🍜 魁力屋 — ラーメン注文で餃子 <b>半額159円</b>（昨日スタート）</span><span class="until hot">〜7/21(火)</span></li>
     </ul>
-    <div class="ongoing">継続中: 店名 内容（〜M/D）／ 店名 内容（〜M/D）</div>
+    <div class="ongoing">継続中: 🥩 牛角 生ビール209円ほか特価（〜8/6）／ 🥗 バーミヤン 中華20品20%OFF（〜8/19）／ 🍻 和食さと 21時〜サワー110円（〜7/21）／ 🍕 ドミノ 持ち帰り毎日30%OFF ／ 丸亀・すき家 アプリ30円引き</div>
   </section>
 
   <section class="card">
     <h2>💳 キャッシュレス</h2>
     <ul class="deals">
-      <li><span class="deal">⭐ 自治体還元など — <b>最大○%</b>（上限○円）</span><span class="until">開催中</span></li>
+      <li><span class="deal">⭐ 埼玉県還元 — PayPay/d払い/au PAY/楽天ペイ <b>最大10〜20%</b>（1回上限1,500円・期間上限2,500円）</span><span class="until">開催中</span></li>
+      <li><span class="deal">📱 富士見市 × au PAY チャージ <b>最大20%還元</b> ／ × d払い トク!トクキャンペーン</span><span class="until">開催中</span></li>
+      <li><span class="deal">⚠ はま寿司「8の日クーポン」<b>7月末で終了</b> — 残りは 7/18(土)・7/28(火) の2回だけ</span><span class="until hot">〜7/28</span></li>
     </ul>
   </section>
 
   <section class="card">
     <h2>🛒 オンラインショップ</h2>
     <ul class="deals">
-      <li><span class="deal">楽天 — 次の買い時: <b>M/D〜M/D</b>（理由）</span><span class="until">待ち</span></li>
+      <li><span class="deal">楽天 — 次の買い時: マラソン後半 <b>7/19(日)〜26(日)</b>。5と0のつく日 7/20(月)・7/25(土) と重複で最大13倍</span><span class="until">待ち</span></li>
     </ul>
+    <div class="note">Yahoo!ショッピングは上の「⏳今日まで」参照。</div>
   </section>
 
   <section class="card">
     <h2>🎪 近隣イベント</h2>
     <ul class="deals">
-      <li><span class="deal">🦕 イベント名 — 場所・ひとこと</span><span class="until">〜M/D</span></li>
+      <li><span class="deal">🦕 さわれる恐竜展 — ららぽーと富士見。実物大模型に触れる体験型</span><span class="until">〜7/20(月)</span></li>
+      <li><span class="deal">🚣 やなせ川いかだラリー — 新河岸川周辺、夏の定番</span><span class="until">7/26(日)</span></li>
     </ul>
   </section>
 
   <footer>
-    出典: 主要な出典名をカンマ区切り ・
-    <a href="https://yuki7827.github.io/daily-life-dashboard/">過去のアーカイブ（GitHub Pages）</a>
+    出典: 気象庁 / Yahoo!天気 / PayPay公式 / ららぽーと富士見 / 富士見市公式 ・
+    <a href="archive.html">過去のアーカイブ</a>
   </footer>
 </div>
+</body>
+</html>

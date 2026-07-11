@@ -1,0 +1,257 @@
+<!--
+  アーティファクト版ダッシュボードのテンプレート。
+  ルール:
+  - <style> 内の CSS・デザイントークンは一切変更しない
+  - <title> は「朝のダッシュボード」固定
+  - コンテンツ（日付・天気・各セクションの中身）だけを当日の情報に差し替える
+  - 下のマークアップはコンテンツ例。行の増減は自由だが、クラス構造は例に合わせる
+  - セクションの順序: 天気 → ⏳今日まで → ゴミ → 外食 → キャッシュレス → EC → イベント
+  - 「⏳今日まで」には当日が期限・当日開催のものだけを集める（なければセクションごと省略）
+  - 熱中症・警報などの防災バナー(.banner)は該当日のみ。無い日は要素ごと省略
+  - 期限が7日以内の .until には class="until hot" を付ける
+  - CLAUDE.md の品質方針（抽選系❌・重複❌・定常圧縮・曜日検算）を適用する
+-->
+<title>朝のダッシュボード</title>
+<style>
+  :root {
+    --ground: #F4F7F7;
+    --card: #FFFFFF;
+    --ink: #1E2A2E;
+    --ink-soft: #5A6B70;
+    --line: #E2E9EA;
+    --accent: #1E7A8C;
+    --accent-soft: #E4F0F2;
+    --alert: #C2452D;
+    --alert-soft: #FBEAE5;
+    --ok: #2E7D4F;
+    --ok-soft: #E5F2EA;
+    --warn: #9A6B0F;
+    --warn-soft: #FBF2DC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground: #101619;
+      --card: #182126;
+      --ink: #E6EDEF;
+      --ink-soft: #93A5AB;
+      --line: #263239;
+      --accent: #56B8CB;
+      --accent-soft: #16323A;
+      --alert: #E57055;
+      --alert-soft: #3A211B;
+      --ok: #5FBE8A;
+      --ok-soft: #1B3226;
+      --warn: #D9A748;
+      --warn-soft: #34290F;
+    }
+  }
+  :root[data-theme="light"] {
+    --ground: #F4F7F7; --card: #FFFFFF; --ink: #1E2A2E; --ink-soft: #5A6B70;
+    --line: #E2E9EA; --accent: #1E7A8C; --accent-soft: #E4F0F2;
+    --alert: #C2452D; --alert-soft: #FBEAE5; --ok: #2E7D4F; --ok-soft: #E5F2EA;
+    --warn: #9A6B0F; --warn-soft: #FBF2DC;
+  }
+  :root[data-theme="dark"] {
+    --ground: #101619; --card: #182126; --ink: #E6EDEF; --ink-soft: #93A5AB;
+    --line: #263239; --accent: #56B8CB; --accent-soft: #16323A;
+    --alert: #E57055; --alert-soft: #3A211B; --ok: #5FBE8A; --ok-soft: #1B3226;
+    --warn: #D9A748; --warn-soft: #34290F;
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; display: flex; flex-direction: column; gap: 14px; }
+
+  /* masthead */
+  header .eyebrow {
+    font-size: 11px; letter-spacing: .18em; color: var(--accent);
+    font-weight: 600; text-transform: uppercase;
+  }
+  header h1 {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 28px; margin: 2px 0 0; font-weight: 600; letter-spacing: .02em;
+    text-wrap: balance;
+  }
+  header .sub { font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; }
+
+  /* alert banner */
+  .banner {
+    background: var(--alert-soft); border: 1px solid color-mix(in srgb, var(--alert) 35%, transparent);
+    border-radius: 10px; padding: 10px 14px; font-size: 13.5px;
+  }
+  .banner strong { color: var(--alert); }
+
+  /* cards */
+  section.card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+    padding: 16px 16px 14px;
+  }
+  section.card h2 {
+    font-size: 13px; margin: 0 0 10px; color: var(--ink-soft);
+    letter-spacing: .08em; font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* weather tiles */
+  .wx-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .wx {
+    border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px;
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .wx .day { font-size: 12px; color: var(--ink-soft); }
+  .wx .temps { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .wx .temps .lo { color: var(--ink-soft); font-size: 15px; font-weight: 500; }
+  .wx .desc { font-size: 12.5px; }
+  .pill {
+    display: inline-block; font-size: 11.5px; font-weight: 600; border-radius: 999px;
+    padding: 1px 9px; margin-top: 5px; align-self: flex-start;
+  }
+  .pill.tri { background: var(--warn-soft); color: var(--warn); }
+  .pill.ng  { background: var(--alert-soft); color: var(--alert); }
+  .pill.ok  { background: var(--ok-soft); color: var(--ok); }
+  .wx-note { font-size: 12px; color: var(--ink-soft); margin-top: 8px; }
+
+  /* deadline rail */
+  .rail { display: flex; flex-direction: column; gap: 8px; }
+  .rail .item {
+    display: flex; gap: 10px; align-items: baseline; justify-content: space-between;
+    border-bottom: 1px dashed var(--line); padding-bottom: 8px;
+  }
+  .rail .item:last-child { border-bottom: none; padding-bottom: 0; }
+  .badge {
+    font-size: 10.5px; font-weight: 700; color: var(--alert);
+    background: var(--alert-soft); border-radius: 4px; padding: 1px 6px;
+    white-space: nowrap; letter-spacing: .04em;
+  }
+  .rail .what { font-size: 13.5px; }
+  .rail .what b { font-size: 14.5px; }
+  .rail .what small { font-size: 12px; color: var(--ink-soft); }
+
+  /* garbage */
+  .gomi-row { display: flex; gap: 10px; }
+  .gomi {
+    flex: 1; border-radius: 10px; padding: 10px 12px; border: 1px solid var(--line);
+  }
+  .gomi.tomorrow { background: var(--accent-soft); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+  .gomi .when { font-size: 11.5px; color: var(--ink-soft); }
+  .gomi.tomorrow .when { color: var(--accent); font-weight: 600; }
+  .gomi .items { font-size: 13.5px; font-weight: 600; margin-top: 1px; }
+  .gomi .hint { font-size: 11.5px; color: var(--ink-soft); margin-top: 2px; }
+
+  /* generic deal rows */
+  ul.deals { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  ul.deals li {
+    display: flex; justify-content: space-between; gap: 12px; align-items: baseline;
+    padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 13.5px;
+  }
+  ul.deals li:last-child { border-bottom: none; }
+  ul.deals .deal b { color: var(--accent); }
+  ul.deals .until { font-size: 11.5px; color: var(--ink-soft); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  ul.deals .until.hot { color: var(--alert); font-weight: 700; }
+  .note { font-size: 12px; color: var(--ink-soft); margin-top: 8px; }
+  .note a, footer a { color: var(--accent); }
+  .ongoing { font-size: 12px; color: var(--ink-soft); margin-top: 8px; border-top: 1px dashed var(--line); padding-top: 8px; }
+
+  footer { font-size: 11.5px; color: var(--ink-soft); text-align: center; margin-top: 6px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">朝のダッシュボード</div>
+    <h1>M月D日（曜）</h1>
+    <div class="sub">埼玉県富士見市 ・ H:MM 更新</div>
+  </header>
+
+  <!-- 防災・熱中症など該当日のみ。無ければこの要素を出さない -->
+  <div class="banner">🥵 <strong>熱中症 厳重警戒</strong> — 説明文。</div>
+
+  <section class="card">
+    <h2>🌤 天気・洗濯</h2>
+    <div class="wx-grid">
+      <div class="wx">
+        <span class="day">今日（曜）天気概況</span>
+        <span class="temps">31° <span class="lo">/ 25°</span></span>
+        <span class="desc">降水 ○%</span>
+        <span class="pill tri">洗濯 △ ひとこと</span><!-- ◎=ok / △=tri / ×=ng -->
+      </div>
+      <div class="wx">
+        <span class="day">明日（曜）天気概況</span>
+        <span class="temps">31° <span class="lo">/ 24°</span></span>
+        <span class="desc">降水 ○%</span>
+        <span class="pill ok">洗濯 ◎ ひとこと</span>
+      </div>
+    </div>
+    <div class="wx-note">🌸 花粉: 一言（オフシーズンなら1行）</div>
+  </section>
+
+  <!-- 当日期限・当日開催のものだけ。無い日はセクションごと省略 -->
+  <section class="card">
+    <h2>⏳ 今日まで！</h2>
+    <div class="rail">
+      <div class="item">
+        <span class="what">🛒 サービス名 <b>お得内容と還元率</b><br>
+          <small>条件・エントリー要否など補足</small></span>
+        <span class="badge">本日最終日</span>
+      </div>
+      <div class="item">
+        <span class="what">🎤 イベント名（場所）</span>
+        <span class="badge">今日開催</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>♻ ゴミ収集</h2>
+    <div class="gomi-row">
+      <div class="gomi">
+        <div class="when">今日（曜）</div>
+        <div class="items">品目 or 収集なし</div>
+      </div>
+      <div class="gomi tomorrow"><!-- 明日が多品目のときは .tomorrow で強調。収集なしなら外す -->
+        <div class="when">明日（曜）— 今夜準備を！</div>
+        <div class="items">品目リスト</div>
+        <div class="hint">次の可燃ごみは 曜 M/D</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🍴 外食キャンペーン</h2>
+    <ul class="deals">
+      <li><span class="deal">🥩 店名 — 内容 <b>金額・%OFF</b></span><span class="until">〜M/D</span></li>
+      <li><span class="deal">🍜 店名 — 内容 <b>金額</b></span><span class="until hot">〜M/D</span></li>
+    </ul>
+    <div class="ongoing">継続中: 店名 内容（〜M/D）／ 店名 内容（〜M/D）</div>
+  </section>
+
+  <section class="card">
+    <h2>💳 キャッシュレス</h2>
+    <ul class="deals">
+      <li><span class="deal">⭐ 自治体還元など — <b>最大○%</b>（上限○円）</span><span class="until">開催中</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>🛒 オンラインショップ</h2>
+    <ul class="deals">
+      <li><span class="deal">楽天 — 次の買い時: <b>M/D〜M/D</b>（理由）</span><span class="until">待ち</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>🎪 近隣イベント</h2>
+    <ul class="deals">
+      <li><span class="deal">🦕 イベント名 — 場所・ひとこと</span><span class="until">〜M/D</span></li>
+    </ul>
+  </section>
+
+  <footer>
+    出典: 主要な出典名をカンマ区切り ・
+    <a href="https://yuki7827.github.io/daily-life-dashboard/">過去のアーカイブ（GitHub Pages）</a>
+  </footer>
+</div>

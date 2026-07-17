@@ -5,7 +5,7 @@ location:
   label: "埼玉県富士見市"
   nearest_station: "東武東上線 ふじみ野駅"   # ※ふじみ野駅は富士見市側。隣接の「ふじみ野市」とは別市
   weather_area: "埼玉県南部"
-  weather_area_code: "110020"               # 埼玉県南部（気象庁）
+  weather_area_code: "110010"               # 埼玉県南部（気象庁 110000.json areas[].area.code。110020は北部なので注意）
   pollen_area: "saitama"
 
 # ゴミ収集（富士見市・自宅地区）— 静的。毎回の取得は不要。

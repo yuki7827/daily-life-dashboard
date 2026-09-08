@@ -77,6 +77,7 @@
     border-radius: 10px; padding: 10px 14px; font-size: 13.5px;
   }
   .banner strong { color: var(--alert); }
+  .banner + .banner { margin-top: -6px; }
 
   /* cards */
   section.card {
@@ -157,41 +158,54 @@
 <div class="wrap">
   <header>
     <div class="eyebrow">朝のダッシュボード</div>
-    <h1>9月8日（火）</h1>
-    <div class="sub">埼玉県富士見市 ・ 4:42 更新</div>
+    <h1>9月9日（水）</h1>
+    <div class="sub">埼玉県富士見市 ・ 4:41 更新</div>
   </header>
 
-  <div class="banner">🌀 <strong>大雨・土砂災害に警戒</strong> — 9/6〜9/7の記録的大雨で地盤が緩んでおり、本日8日昼頃〜10日(木)頃にかけて関東は再び雨のピーク。少しの雨でも土砂災害の恐れがあります。</div>
+  <div class="banner">🌀 <strong>大雨・線状降水帯に警戒</strong> — 8日夜〜9日未明に線状降水帯発生のおそれ。9日明け方にかけ雷を伴う激しい雨。土砂災害・浸水・河川増水に引き続き警戒（南部は土砂災害・雷注意報発表中）。10日にかけても大雨続く見込み。</div>
+  <div class="banner">🥵 <strong>熱中症警戒アラート発表中</strong> — 暑さ指数31以上の予想。蒸し暑さが残るため屋内でも水分・塩分補給を。</div>
 
   <section class="card">
     <h2>🌤 天気・洗濯</h2>
     <div class="wx-grid">
       <div class="wx">
-        <span class="day">今日（火）曇のち雨</span>
-        <span class="temps">28° <span class="lo">/ 23°</span></span>
-        <span class="desc">降水 80%（12時台ピーク）</span>
+        <span class="day">今日（水）曇時々雨・雷</span>
+        <span class="temps">32° <span class="lo">/ 22°</span></span>
+        <span class="desc">降水 70〜80%</span>
         <span class="pill ng">洗濯 × 部屋干し推奨</span>
       </div>
       <div class="wx">
-        <span class="day">明日（水）雨</span>
-        <span class="temps">32° <span class="lo">/ 23°</span></span>
-        <span class="desc">降水 70%以上（局地的に激しい雨）</span>
+        <span class="day">明日（木）雨</span>
+        <span class="temps">23° <span class="lo">/ 18°</span></span>
+        <span class="desc">降水 80〜90%</span>
         <span class="pill ng">洗濯 × 部屋干し推奨</span>
       </div>
     </div>
-    <div class="wx-note">🌸 花粉: スギ・ヒノキはオフシーズン。ブタクサ等の秋花粉が飛散ピーク（特に午前中に多い）</div>
+    <div class="wx-note">🌸 花粉: スギ・ヒノキはオフシーズン。ブタクサ等の秋花粉が飛散ピーク（屋外の草むら付近は注意）</div>
+  </section>
+
+  <section class="card">
+    <h2>⏳ 今日まで！</h2>
+    <div class="rail">
+      <div class="item">
+        <span class="what">☕ タリーズ LINE友だち限定 全ドリンク<b>200円OFF</b>クーポン<br>
+          <small>クーポン獲得の期限が今日含め残りわずか。使用は9/30まで</small></span>
+        <span class="badge">獲得〜明日</span>
+      </div>
+    </div>
   </section>
 
   <section class="card">
     <h2>♻ ゴミ収集</h2>
     <div class="gomi-row">
       <div class="gomi">
-        <div class="when">今日（火）</div>
-        <div class="items">収集なし</div>
-      </div>
-      <div class="gomi tomorrow">
-        <div class="when">明日（水）— 今夜準備を！</div>
+        <div class="when">今日（水）</div>
         <div class="items">可燃ごみ／資源プラスチック</div>
+      </div>
+      <div class="gomi">
+        <div class="when">明日（木）</div>
+        <div class="items">収集なし</div>
+        <div class="hint">次の可燃ごみは 土 9/12</div>
       </div>
     </div>
   </section>
@@ -199,41 +213,42 @@
   <section class="card">
     <h2>🍴 外食キャンペーン</h2>
     <ul class="deals">
-      <li><span class="deal">🍔 マクドナルド ハッピーセット等 <b>16〜17%OFF</b></span><span class="until hot">〜9/11</span></li>
-      <li><span class="deal">🍟 モスバーガー オフピーク来店 <b>100円引き</b></span><span class="until hot">〜9/14</span></li>
-      <li><span class="deal">🍗 ケンタッキー生誕祭パック 1,280円→<b>990円</b></span><span class="until hot">〜9/15</span></li>
+      <li><span class="deal">🍔 マクドナルド — アプリクーポン ハッピーセット等 <b>17%OFF</b></span><span class="until hot">〜9/11</span></li>
+      <li><span class="deal">🍗 ケンタッキー — カーネル生誕祭パック 1,280円→<b>990円</b></span><span class="until hot">〜9/15</span></li>
+      <li><span class="deal">🍔 モスバーガー — オフピーク時間帯 <b>100円引き</b></span><span class="until">〜9/14</span></li>
+      <li><span class="deal">🍽 ガスト — キッズ&アルコール半額クーポン</span><span class="until">〜9/16</span></li>
     </ul>
-    <div class="ongoing">継続中: すき家Sukipass対象品70円引き（〜9/30）／吉野家トッピング祭8品各50円引き（〜9/24）／吉野家あすトク200円引き（〜9/23）／くら寿司 楽天ポイント20倍（〜9/30）／ドミノピザ お持ち帰り常時30%OFF</div>
+    <div class="ongoing">継続中: すき家Sukipass 70円引き（〜9/30）／吉野家トッピング祭50円引き（〜9/24）／吉野家あすトク200円引き（〜9/23）／ドミノピザ持ち帰り常時30%OFF・水曜40%OFF</div>
   </section>
 
   <section class="card">
     <h2>💳 キャッシュレス</h2>
     <ul class="deals">
-      <li><span class="deal">☕ au PAY ドトール 17時以降 <b>Pontaポイント2倍（1%相当）</b></span><span class="until">〜10/31</span></li>
+      <li><span class="deal">☕ au PAY ドトールグループ 17時以降 <b>Pontaポイント2倍</b>＋3回利用で88pt</span><span class="until">〜10/31</span></li>
     </ul>
-    <div class="note">⚠ d払い特典が9/1改定、付与上限が一律200ポイントに縮小されました</div>
+    <div class="note">富士見市・ふじみ野市・三芳町の自治体還元は本日新規実施なし（近隣の朝霞市は9/28〜最大15%還元予定）</div>
   </section>
 
   <section class="card">
     <h2>🛒 オンラインショップ</h2>
     <ul class="deals">
-      <li><span class="deal">🎉 楽天スーパーSALE開催中 買い回り <b>最大11倍</b></span><span class="until hot">〜9/11</span></li>
-      <li><span class="deal">Yahoo!ショッピング 次回「5のつく日」<b>PayPay+4%</b></span><span class="until">9/15待ち</span></li>
+      <li><span class="deal">🎉 楽天市場 — 楽天スーパーSALE 買い回りで<b>最大10倍</b></span><span class="until hot">〜9/11</span></li>
+      <li><span class="deal">Yahoo!ショッピング — 次の5のつく日: <b>9/15</b>（PayPay+4%）</span><span class="until">待ち</span></li>
+      <li><span class="deal">Amazon — 次回セール: <b>10月中旬</b>プライム感謝祭</span><span class="until">待ち</span></li>
     </ul>
   </section>
 
   <section class="card">
     <h2>🎪 近隣イベント</h2>
     <ul class="deals">
-      <li><span class="deal">🍮 ららぽーと富士見「治一郎」バウムクーヘン出店</span><span class="until hot">〜9/13</span></li>
-      <li><span class="deal">🎤 ららぽーと富士見「Def Class」屋外広場ライブ</span><span class="until">9/12</span></li>
-      <li><span class="deal">🍮 ららぽーと富士見「ご褒美プリンと焼き菓子フェス」</span><span class="until">9/12〜9/18</span></li>
+      <li><span class="deal">🍰 治一郎ポップアップ — ららぽーと富士見1F</span><span class="until hot">〜9/13</span></li>
+      <li><span class="deal">🍮 ご褒美プリンと焼き菓子フェス — ららぽーと富士見1F</span><span class="until">9/12〜9/18</span></li>
+      <li><span class="deal">🎤 Def Class ライブ — ららぽーと富士見屋外広場</span><span class="until">9/12</span></li>
     </ul>
-    <div class="note">⚠ 引き続き大雨・土砂災害のおそれあり。お出かけは天候急変にご注意を</div>
   </section>
 
   <footer>
-    出典: tenki.jp・埼玉新聞・プライシー・KFC公式・au PAY公式・ポイ探ニュース・アプリオ・ららぽーと富士見公式 ・
+    出典: tenki.jp・埼玉県防災情報・au PAY公式・アプリオ・ららぽーと富士見公式 ほか ・
     <a href="archive.html">過去のアーカイブ</a>
   </footer>
 </div>

@@ -77,7 +77,6 @@
     border-radius: 10px; padding: 10px 14px; font-size: 13.5px;
   }
   .banner strong { color: var(--alert); }
-  .banner + .banner { margin-top: -6px; }
 
   /* cards */
   section.card {
@@ -158,38 +157,52 @@
 <div class="wrap">
   <header>
     <div class="eyebrow">朝のダッシュボード</div>
-    <h1>9月10日（木）</h1>
-    <div class="sub">埼玉県富士見市 ・ 朝 更新</div>
+    <h1>9月11日（金）</h1>
+    <div class="sub">埼玉県富士見市 ・ 朝更新</div>
   </header>
 
-  <div class="banner">🌀 <strong>大雨・土砂災害に注意</strong> — 台風24号から変わった熱帯低気圧の影響で9〜10日は大雨が続く見込み。地盤が緩んでいる所があり、少しの雨でも土砂災害が発生しやすい状態。斜面・崖付近は引き続き注意。</div>
+  <div class="banner">🌀 <strong>大雨・土砂災害に警戒</strong> 前線の影響で今日は関東甲信で警報級の大雨のおそれ。地盤が緩んでいるため少しの雨でも土砂災害が発生しやすい状態です。斜面・崖付近は特にご注意を。</div>
 
   <section class="card">
     <h2>🌤 天気・洗濯</h2>
     <div class="wx-grid">
       <div class="wx">
-        <span class="day">今日（木）雨のち曇り</span>
-        <span class="temps">23° <span class="lo">/ 19°</span></span>
-        <span class="desc">降水 80〜90%</span>
+        <span class="day">今日（金）雨時々曇り</span>
+        <span class="temps">22° <span class="lo">/ 18°</span></span>
+        <span class="desc">降水 80〜100%</span>
         <span class="pill ng">洗濯 × 部屋干し推奨</span>
       </div>
       <div class="wx">
-        <span class="day">明日（金）雨のち曇り</span>
-        <span class="temps">21° <span class="lo">/ 18°</span></span>
-        <span class="desc">降水 朝90〜100%→午後40%</span>
-        <span class="pill ng">洗濯 × 部屋干し推奨</span>
+        <span class="day">明日（土）曇り</span>
+        <span class="temps">25° <span class="lo">/ 20°</span></span>
+        <span class="desc">降水 40%</span>
+        <span class="pill tri">洗濯 △ 短時間の外干し可</span>
       </div>
     </div>
-    <div class="wx-note">🌸 花粉: スギ・ヒノキはオフシーズン。ブタクサ等の秋花粉が飛散ピーク（屋外の草むら付近は注意）</div>
+    <div class="wx-note">🌸 花粉: スギ・ヒノキはオフシーズン。ブタクサ等の秋花粉が飛散ピーク（8月下旬〜9月）</div>
   </section>
 
   <section class="card">
     <h2>⏳ 今日まで！</h2>
     <div class="rail">
       <div class="item">
-        <span class="what">☕ タリーズ LINE友だち限定 全ドリンク<b>200円OFF</b>クーポン<br>
-          <small>クーポン獲得の期限が今日まで。使用は9/30まで</small></span>
-        <span class="badge">本日獲得締切</span>
+        <span class="what">🍔 すき家 Sukiシェイク全品<b>30円引き</b>・お子様メニュー<b>100円引き</b><br>
+          <small>公式アプリのクーポン提示、今日9/11スタート</small></span>
+        <span class="badge">〜9/13</span>
+      </div>
+      <div class="item">
+        <span class="what">🛍 ZOZOTOWN Yahoo!店「本気のZOZO祭」<b>PayPay+8%</b>・最大2,000円OFF<br>
+          <small>5,000円以上の購入が対象</small></span>
+        <span class="badge">〜9/14</span>
+      </div>
+      <div class="item">
+        <span class="what">📱 au PAYマーケット「ポイント超超祭」<b>最大36%還元</b><br>
+          <small>9/13(日)0:00〜9:59は三太郎の日重複で最大46%</small></span>
+        <span class="badge">〜9/13</span>
+      </div>
+      <div class="item">
+        <span class="what">🍰 ららぽーと富士見「治一郎」POP UP SHOP</span>
+        <span class="badge">〜9/13</span>
       </div>
     </div>
   </section>
@@ -198,13 +211,12 @@
     <h2>♻ ゴミ収集</h2>
     <div class="gomi-row">
       <div class="gomi">
-        <div class="when">今日（木）</div>
+        <div class="when">今日（金）</div>
         <div class="items">収集なし</div>
       </div>
-      <div class="gomi">
-        <div class="when">明日（金）</div>
-        <div class="items">収集なし</div>
-        <div class="hint">次の可燃ごみは 土 9/12</div>
+      <div class="gomi tomorrow">
+        <div class="when">明日（土）— 今夜準備を！</div>
+        <div class="items">可燃ごみ</div>
       </div>
     </div>
   </section>
@@ -212,45 +224,44 @@
   <section class="card">
     <h2>🍴 外食キャンペーン</h2>
     <ul class="deals">
-      <li><span class="deal">🍔 マクドナルド — アプリクーポン ハッピーセット等 <b>17%OFF</b></span><span class="until hot">〜9/11</span></li>
+      <li><span class="deal">🍔 すき家 — Sukiシェイク <b>30円引き</b>・お子様メニュー<b>100円引き</b></span><span class="until hot">〜9/13</span></li>
+      <li><span class="deal">🍛 松屋 — 豚と茄子の辛味噌炒め定食 <b>100円引き</b></span><span class="until">〜9/15</span></li>
       <li><span class="deal">🍗 ケンタッキー — カーネル生誕祭パック 1,280円→<b>990円</b></span><span class="until">〜9/15</span></li>
-      <li><span class="deal">🍔 モスバーガー — オフピーク時間帯 <b>100円引き</b></span><span class="until">〜9/14</span></li>
-      <li><span class="deal">🍽 ガスト — キッズ&アルコール半額クーポン</span><span class="until">〜9/16</span></li>
+      <li><span class="deal">🍔 モスバーガー — ネット注文 各<b>100円引き</b>クーポン2種</span><span class="until hot">〜9/14</span></li>
     </ul>
-    <div class="ongoing">継続中: すき家Sukipass 70円引き（〜9/30）／吉野家・松屋 PayPay支払いLYP会員5%還元・上限100円（〜9/30）／くら寿司 楽天モバイル会員ポイント20倍（〜9/30）</div>
+    <div class="ongoing">継続中: 吉野家トッピング祭50円引き（〜9/24）／吉野家あすトククーポン翌日200円引き（〜9/23）／すき家Sukipass 70円引き（〜9/30）</div>
   </section>
 
   <section class="card">
     <h2>💳 キャッシュレス</h2>
     <ul class="deals">
-      <li><span class="deal">💰 本日は5のつく日 — 楽天ペイ決済 <b>最大3%還元</b>（上限2,000pt/月）</span><span class="until">今日</span></li>
-      <li><span class="deal">☕ au PAY UCCグループ 700円以上で<b>100円引き</b></span><span class="until">〜9/30</span></li>
-      <li><span class="deal">👔 au PAY はるやま 3,000円以上で<b>最大10%還元</b></span><span class="until">〜9/27</span></li>
+      <li><span class="deal">⭐ 富士見市・ふじみ野市・三芳町の自治体還元 — 実施なし（確認済み）</span><span class="until">—</span></li>
+      <li><span class="deal">☕ au PAY — UCCグループ対象店舗 <b>100円引き</b>（税込700円以上）</span><span class="until">〜9/30</span></li>
+      <li><span class="deal">💰 楽天ペイ — 毎月最終日曜日 対象店で最大<b>10%還元</b></span><span class="until">次回9/27</span></li>
     </ul>
-    <div class="note">富士見市・ふじみ野市・三芳町の自治体還元は本日確認できた範囲では実施なし（近隣の朝霞市は9/28〜最大15%還元予定）</div>
-    <div class="note">⚠ d払い／dカード支払い特典が9月から改悪。d払い特典の上限がランク問わず一律200pt/月に、dカード支払い特典は有効期限94日間のポイントに変更</div>
   </section>
 
   <section class="card">
     <h2>🛒 オンラインショップ</h2>
     <ul class="deals">
-      <li><span class="deal">🎉 楽天市場 — 楽天スーパーSALE 買い回りで<b>最大10倍</b></span><span class="until hot">〜9/11 1:59</span></li>
-      <li><span class="deal">Yahoo!ショッピング — 次の5のつく日: <b>9/15</b>（PayPay+4%・上限2,000円）</span><span class="until">待ち</span></li>
-      <li><span class="deal">Amazon — 次回セール: <b>10月中旬</b>プライム感謝祭（未発表）</span><span class="until">待ち</span></li>
+      <li><span class="deal">📱 au PAYマーケット「ポイント超超祭」<b>最大36%還元</b></span><span class="until hot">〜9/13</span></li>
+      <li><span class="deal">🛍 Yahoo!内ZOZOTOWN「本気のZOZO祭」PayPay<b>+8%</b></span><span class="until hot">〜9/14</span></li>
+      <li><span class="deal">楽天 — 次の買い時: <b>9/19(土)〜9/24(木)</b>お買い物マラソン</span><span class="until">待ち</span></li>
+      <li><span class="deal">Amazon — 大型セールなし、次は10月「プライム感謝祭」</span><span class="until">待ち</span></li>
     </ul>
   </section>
 
   <section class="card">
     <h2>🎪 近隣イベント</h2>
     <ul class="deals">
-      <li><span class="deal">🍰 治一郎ポップアップ — ららぽーと富士見1F</span><span class="until hot">〜9/13</span></li>
-      <li><span class="deal">🍮 ご褒美プリンと焼き菓子フェス — ららぽーと富士見1F</span><span class="until">9/12〜9/18</span></li>
-      <li><span class="deal">👻 お化け屋敷「リアルきもだめし」— ららぽーと富士見3F</span><span class="until">9/12・9/13</span></li>
+      <li><span class="deal">👻 リアルきもだめし 霊界への扉（ららぽーと富士見3F）</span><span class="until">9/12・13</span></li>
+      <li><span class="deal">🍮 ご褒美プリンと焼き菓子フェス（ららぽーと富士見1F）</span><span class="until">〜9/18</span></li>
+      <li><span class="deal">🥐 治一郎 POP UP SHOP（ららぽーと富士見）</span><span class="until hot">〜9/13</span></li>
     </ul>
   </section>
 
   <footer>
-    出典: tenki.jp・環境省熱中症予防情報サイト・au PAY公式・NTTドコモ公式・アプリオ・ららぽーと富士見公式 ほか ・
+    出典: tenki.jp・Yahoo!ニュース・グルメWatch・ケータイWatch・三井ショッピングパーク公式 ほか ・
     <a href="archive.html">過去のアーカイブ</a>
   </footer>
 </div>
